@@ -7,6 +7,7 @@
 
 #import "MovieViewController.h"
 #import "MovieCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MovieViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Initialize a UIRefreshControl.
+    // UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -88,6 +92,23 @@
     // If we were true OOPers we would make a movie object.
     cell.synopsisLabel.text = currMovie[@"overview"];
     cell.titleLabel.text = currMovie[@"title"];
+    
+    // Get the location URL of the desired poster. First get base URL, then
+    // append to that the location of the individual poster we need (from
+    // the .json), then convert that into a NSURL object.
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = currMovie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString
+                                     stringByAppendingString:posterURLString];
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    
+    // Sometimes it takes a while to load new images, and old ones persist,
+    // causing unpleasant flickering. This gets rid of the old image so UI
+    // is smoother when scrolling.
+    cell.posterView.image = nil;
+    
+    // Method setImageWithURL is part of AFNetworking.
+    [cell.posterView setImageWithURL:posterURL];
     
     // Return the recycled MovieCell with the updated contents.
     return cell;
