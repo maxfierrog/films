@@ -3,13 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		98797E97285A781C006251B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797E96285A781C006251B9 /* AppDelegate.m */; };
 		98797E9A285A781C006251B9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797E99285A781C006251B9 /* SceneDelegate.m */; };
-		98797E9D285A781C006251B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797E9C285A781C006251B9 /* ViewController.m */; };
 		98797EA0285A781C006251B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98797E9E285A781C006251B9 /* Main.storyboard */; };
 		98797EA2285A781C006251B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98797EA1285A781C006251B9 /* Assets.xcassets */; };
 		98797EA5285A781C006251B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98797EA3285A781C006251B9 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,8 @@
 		98797EB2285A781C006251B9 /* flixterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797EB1285A781C006251B9 /* flixterTests.m */; };
 		98797EBC285A781D006251B9 /* flixterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797EBB285A781D006251B9 /* flixterUITests.m */; };
 		98797EBE285A781D006251B9 /* flixterUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797EBD285A781D006251B9 /* flixterUITestsLaunchTests.m */; };
+		98E7EAC4285A7A6800733094 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E7EAC3285A7A6800733094 /* MovieViewController.m */; };
+		98E7EACB285A9D5C00733094 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E7EACA285A9D5C00733094 /* MovieCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,6 @@
 		98797E96285A781C006251B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		98797E98285A781C006251B9 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		98797E99285A781C006251B9 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		98797E9B285A781C006251B9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		98797E9C285A781C006251B9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		98797E9F285A781C006251B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		98797EA1285A781C006251B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98797EA4285A781C006251B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,10 @@
 		98797EB7285A781C006251B9 /* flixterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flixterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98797EBB285A781D006251B9 /* flixterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixterUITests.m; sourceTree = "<group>"; };
 		98797EBD285A781D006251B9 /* flixterUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixterUITestsLaunchTests.m; sourceTree = "<group>"; };
+		98E7EAC2285A7A6800733094 /* MovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
+		98E7EAC3285A7A6800733094 /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
+		98E7EAC9285A9D5C00733094 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MovieCell.h; path = ViewControllers/MovieCell.h; sourceTree = "<group>"; };
+		98E7EACA285A9D5C00733094 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MovieCell.m; path = ViewControllers/MovieCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,12 +107,13 @@
 		98797E94285A781C006251B9 /* flixter */ = {
 			isa = PBXGroup;
 			children = (
+				98E7EAC5285A7A7D00733094 /* ViewControllers */,
+				98E7EAC9285A9D5C00733094 /* MovieCell.h */,
+				98E7EACA285A9D5C00733094 /* MovieCell.m */,
 				98797E95285A781C006251B9 /* AppDelegate.h */,
 				98797E96285A781C006251B9 /* AppDelegate.m */,
 				98797E98285A781C006251B9 /* SceneDelegate.h */,
 				98797E99285A781C006251B9 /* SceneDelegate.m */,
-				98797E9B285A781C006251B9 /* ViewController.h */,
-				98797E9C285A781C006251B9 /* ViewController.m */,
 				98797E9E285A781C006251B9 /* Main.storyboard */,
 				98797EA1285A781C006251B9 /* Assets.xcassets */,
 				98797EA3285A781C006251B9 /* LaunchScreen.storyboard */,
@@ -134,6 +138,15 @@
 				98797EBD285A781D006251B9 /* flixterUITestsLaunchTests.m */,
 			);
 			path = flixterUITests;
+			sourceTree = "<group>";
+		};
+		98E7EAC5285A7A7D00733094 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				98E7EAC2285A7A6800733094 /* MovieViewController.h */,
+				98E7EAC3285A7A6800733094 /* MovieViewController.m */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,10 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98797E9D285A781C006251B9 /* ViewController.m in Sources */,
 				98797E97285A781C006251B9 /* AppDelegate.m in Sources */,
+				98E7EACB285A9D5C00733094 /* MovieCell.m in Sources */,
 				98797EA8285A781C006251B9 /* main.m in Sources */,
 				98797E9A285A781C006251B9 /* SceneDelegate.m in Sources */,
+				98E7EAC4285A7A6800733094 /* MovieViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
