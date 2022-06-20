@@ -66,8 +66,8 @@
 		98797EBD285A781D006251B9 /* flixterUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = flixterUITestsLaunchTests.m; sourceTree = "<group>"; };
 		98E7EAC2285A7A6800733094 /* MovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		98E7EAC3285A7A6800733094 /* MovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
-		98E7EAC9285A9D5C00733094 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MovieCell.h; path = ViewControllers/MovieCell.h; sourceTree = "<group>"; };
-		98E7EACA285A9D5C00733094 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MovieCell.m; path = ViewControllers/MovieCell.m; sourceTree = "<group>"; };
+		98E7EAC9285A9D5C00733094 /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
+		98E7EACA285A9D5C00733094 /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		98E7EB0D285D0F5600733094 /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		98E7EB0E285D0F5600733094 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		98E7EB13285FE28400733094 /* GridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GridViewController.h; path = flixter/GridViewController.h; sourceTree = SOURCE_ROOT; };
@@ -131,6 +131,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9816CD22285FF6C9001FD72D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				98E7EAC9285A9D5C00733094 /* MovieCell.h */,
+				98E7EACA285A9D5C00733094 /* MovieCell.m */,
+				9816CD1F285FE55E001FD72D /* GridMovieCell.h */,
+				9816CD20285FE55E001FD72D /* GridMovieCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		98797E89285A781C006251B9 = {
 			isa = PBXGroup;
 			children = (
@@ -156,16 +167,13 @@
 		98797E94285A781C006251B9 /* flixter */ = {
 			isa = PBXGroup;
 			children = (
+				9816CD22285FF6C9001FD72D /* Cells */,
 				98E7EAC5285A7A7D00733094 /* ViewControllers */,
-				98E7EAC9285A9D5C00733094 /* MovieCell.h */,
-				98E7EACA285A9D5C00733094 /* MovieCell.m */,
 				98797E95285A781C006251B9 /* AppDelegate.h */,
 				98797E96285A781C006251B9 /* AppDelegate.m */,
 				98797E98285A781C006251B9 /* SceneDelegate.h */,
 				98797E99285A781C006251B9 /* SceneDelegate.m */,
 				98797E9E285A781C006251B9 /* Main.storyboard */,
-				9816CD1F285FE55E001FD72D /* GridMovieCell.h */,
-				9816CD20285FE55E001FD72D /* GridMovieCell.m */,
 				98797EA1285A781C006251B9 /* Assets.xcassets */,
 				98797EA3285A781C006251B9 /* LaunchScreen.storyboard */,
 				98797EA6285A781C006251B9 /* Info.plist */,
