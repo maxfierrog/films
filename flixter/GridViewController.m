@@ -8,99 +8,53 @@
 #import "UIImageView+AFNetworking.h"
 #import "GridViewController.h"
 #import "GridMovieCell.h"
+#import "Utils.h"
+#import "APIManager.h"
 
 @interface GridViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
-@property NSDictionary *movieDict;
 @property (nonatomic, strong) NSArray *movieArray;
+@property NSDictionary *movieDict;
 @end
 
 @implementation GridViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIAlertController *alert = [UIAlertController
-                      alertControllerWithTitle:@"Network Error"
-                                       message:@"No internet connection."
-                                preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction
-                    actionWithTitle:@"Reload"
-                              style:UIAlertActionStyleDefault
-                            handler:^(UIAlertAction * _Nonnull action) {
+    
+    UIAlertController *alert = [Utils getNetworkingAlertController:^{
         [self viewDidLoad];
     }];
-    [alert addAction:ok];
+    
     self.movieGridView.dataSource = self;
     self.movieGridView.delegate = self;
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0e3e4cf020820c13098e4a8ddad6a61b"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url
-                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                            timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:
-                                [NSURLSessionConfiguration defaultSessionConfiguration]
-                            delegate:nil
-                            delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                 completionHandler:^(NSData *data,
-                                                    NSURLResponse *response,
-                                                    NSError *error) {
+    
+    [APIManager fetchNowPlayingMovies:^(NSArray * _Nonnull movies, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            self.movieDict = [NSJSONSerialization
-                              JSONObjectWithData:data
-                                         options:NSJSONReadingMutableContainers
-                                           error:nil];
-            self.movieArray = self.movieDict[@"results"];
+            self.movieArray = movies;
             [self.movieGridView reloadData];
         }
     }];
-    [task resume];
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self
-                       action:@selector(doRefresh:)
-             forControlEvents:UIControlEventValueChanged];
-    [self.movieGridView insertSubview:refreshControl atIndex:0];
+    
+    [Utils getRefreshControl:self refreshSelector:@selector(doRefresh:) UIView:self.movieGridView];
 }
 
 - (void)doRefresh:(UIRefreshControl *)refreshControl {
-    UIAlertController *alert = [UIAlertController
-                      alertControllerWithTitle:@"Network Error"
-                                       message:@"No internet connection."
-                                preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction
-                    actionWithTitle:@"Reload"
-                              style:UIAlertActionStyleDefault
-                            handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [Utils getNetworkingAlertController:^{
         [self doRefresh:refreshControl];
     }];
-    [alert addAction:ok];
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0e3e4cf020820c13098e4a8ddad6a61b"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url
-                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                            timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:
-                                [NSURLSessionConfiguration defaultSessionConfiguration]
-                            delegate:nil
-                            delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                 completionHandler: ^(NSData *data,
-                                                      NSURLResponse *response,
-                                                      NSError *error) {
+    [APIManager fetchNowPlayingMovies:^(NSArray *movies, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            self.movieDict = [NSJSONSerialization
-                              JSONObjectWithData:data
-                                         options:NSJSONReadingMutableContainers
-                                           error:nil];
-            self.movieArray = self.movieDict[@"results"];
+            self.movieArray = movies;
             [self.movieGridView reloadData];
             [refreshControl endRefreshing];
         }
     }];
-    [task resume];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -109,14 +63,8 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GridMovieCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GridMovieCell" forIndexPath: indexPath];
-    NSDictionary *currMovie = self.movieArray[indexPath.row];
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = currMovie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString
-                                     stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    cell.movieGridCellImage.image = nil;
-    [cell.movieGridCellImage setImageWithURL:posterURL];
+    Movie *movie = self.movieArray[indexPath.row];
+    [Utils setUIImageViewImage:cell.movieGridCellImage path:movie.posterPath];
     return cell;
 }
 

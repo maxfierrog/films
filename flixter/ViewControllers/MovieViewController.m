@@ -30,7 +30,7 @@
         [self viewDidLoad];
     }];
     
-    [Utils getRefreshControl:self refreshSelector:@selector(doRefresh:) tableView:self.tableView];
+    [Utils getRefreshControl:self refreshSelector:@selector(doRefresh:) UIView:self.tableView];
     
     [self.activityIndicator hidesWhenStopped];
     [self.activityIndicator startAnimating];
@@ -72,7 +72,7 @@
     Movie *currMovie = self.movieArray[indexPath.row];
     cell.synopsisLabel.text = currMovie.overview;
     cell.titleLabel.text = currMovie.title;
-    [Utils setPosterViewImage:cell.posterView path:currMovie.posterPath];
+    [Utils setUIImageViewImage:cell.posterView path:currMovie.posterPath];
     return cell;
 }
 

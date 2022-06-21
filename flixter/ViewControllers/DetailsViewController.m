@@ -28,8 +28,8 @@
     NSString *popularityNum = [NSString stringWithFormat:@"%@", self.movie.popularity];
     self.popularityRating.text = [@"Popularity: " stringByAppendingString:popularityNum];
     
-    [Utils setPosterViewImage:self.posterImage path:self.movie.posterPath];
-    [Utils setPosterViewImage:self.backdropImage path:self.movie.backdropPath];
+    [Utils setUIImageViewImage:self.posterImage path:self.movie.posterPath];
+    [Utils setUIImageViewImage:self.backdropImage path:self.movie.backdropPath];
 }
 
 /*

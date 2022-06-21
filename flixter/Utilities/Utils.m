@@ -22,18 +22,18 @@
     return alert;
 }
 
-+ (UIRefreshControl *)getRefreshControl:(UIViewController *)viewController refreshSelector:(SEL)refreshSelector tableView:(UITableView *)tableView {
++ (UIRefreshControl *)getRefreshControl:(UIViewController *)viewController refreshSelector:(SEL)refreshSelector UIView:(UIView *)UIView {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:viewController action:refreshSelector forControlEvents:UIControlEventValueChanged];
-    [tableView insertSubview:refreshControl atIndex:0];
+    [UIView insertSubview:refreshControl atIndex:0];
     return refreshControl;
 }
 
-+ (void)setPosterViewImage:(UIImageView *)posterView path:(NSString *)path {
++ (void)setUIImageViewImage:(UIImageView *)target path:(NSString *)path {
     NSString *fullPosterURLString = [@"https://image.tmdb.org/t/p/w500" stringByAppendingString:path];
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    posterView.image = nil;
-    [posterView setImageWithURL:posterURL];
+    target.image = nil;
+    [target setImageWithURL:posterURL];
 }
 
 @end

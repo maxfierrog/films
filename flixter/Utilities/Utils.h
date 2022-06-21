@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Utils : NSObject
 
 + (UIAlertController *)getNetworkingAlertController:(void (^)(void))doWhenClickOK;
-+ (UIRefreshControl *)getRefreshControl:(UIViewController *)viewController refreshSelector:(SEL)refreshSelector tableView:(UITableView *)tableView;
-+ (void)setPosterViewImage:(UIImageView *)posterView path:(NSString *)path;
++ (UIRefreshControl *)getRefreshControl:(UIViewController *)viewController refreshSelector:(SEL)refreshSelector UIView:(UIView *)UIView;
++ (void)setUIImageViewImage:(UIImageView *)target path:(NSString *)path;
 
 @end
 
