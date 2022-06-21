@@ -12,6 +12,7 @@
 		9816CD21285FE55E001FD72D /* GridMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9816CD20285FE55E001FD72D /* GridMovieCell.m */; };
 		9830A71728622DB9007BFC17 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830A71628622DB9007BFC17 /* Movie.m */; };
 		9830A71A28622DCA007BFC17 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830A71928622DCA007BFC17 /* APIManager.m */; };
+		9830A71D2862508E007BFC17 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9830A71C2862508E007BFC17 /* Utils.m */; };
 		98797E97285A781C006251B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797E96285A781C006251B9 /* AppDelegate.m */; };
 		98797E9A285A781C006251B9 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 98797E99285A781C006251B9 /* SceneDelegate.m */; };
 		98797EA0285A781C006251B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98797E9E285A781C006251B9 /* Main.storyboard */; };
@@ -55,6 +56,8 @@
 		9830A71628622DB9007BFC17 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		9830A71828622DCA007BFC17 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		9830A71928622DCA007BFC17 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		9830A71B2862508E007BFC17 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ViewControllers/Utils.h; sourceTree = "<group>"; };
+		9830A71C2862508E007BFC17 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ViewControllers/Utils.m; sourceTree = "<group>"; };
 		98797E92285A781C006251B9 /* flixter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flixter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98797E95285A781C006251B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		98797E96285A781C006251B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 		98797E94285A781C006251B9 /* flixter */ = {
 			isa = PBXGroup;
 			children = (
+				9830A71B2862508E007BFC17 /* Utils.h */,
+				9830A71C2862508E007BFC17 /* Utils.m */,
 				9816CD22285FF6C9001FD72D /* Cells */,
 				98E7EAC5285A7A7D00733094 /* ViewControllers */,
 				98797E95285A781C006251B9 /* AppDelegate.h */,
@@ -424,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9816CD21285FE55E001FD72D /* GridMovieCell.m in Sources */,
+				9830A71D2862508E007BFC17 /* Utils.m in Sources */,
 				98797E97285A781C006251B9 /* AppDelegate.m in Sources */,
 				98E7EACB285A9D5C00733094 /* MovieCell.m in Sources */,
 				98797EA8285A781C006251B9 /* main.m in Sources */,

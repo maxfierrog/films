@@ -6,16 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailsViewController : UIViewController
 
-// Ignore properties -- I am just practicing. They are reminders of what
-// the defaults are.
-@property (strong, atomic, readwrite) NSDictionary *movieInfo;
+@property Movie *movie;
 
-// Outlets for included movie details.
 @property (weak, nonatomic) IBOutlet UIImageView *backdropImage;
 @property (weak, nonatomic) IBOutlet UIImageView *posterImage;
 @property (weak, nonatomic) IBOutlet UILabel *maturityRating;

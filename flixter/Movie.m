@@ -9,9 +9,7 @@
 
 @implementation Movie
 
-- (NSObject *)initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
-    
+- (id)withDictionary:(NSDictionary *)dict {
     // NSArray
     self.genreIDs = dict[@"genre_ids"];
     
@@ -22,8 +20,8 @@
     self.movieID = dict[@"id"];
     
     // boolean >> NSString
-    self.adult = [dict[@"adult"] boolValue] ? @"Yes" : @"No";
-    self.video = [dict[@"video"] boolValue] ? @"Yes" : @"No";
+    self.adult = [dict[@"adult"] boolValue] ? @"Adult" : @"For all audiences";
+    self.video = [dict[@"video"] boolValue] ? @"Video available" : @"No video available";
     
     // NSString
     self.backdropPath = dict[@"backdrop_path"];

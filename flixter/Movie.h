@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Movie : NSObject
 
-@property NSString *adult;
-@property NSString *video;
-
 @property NSArray *genreIDs;
 
 @property NSNumber *voteAverage;
@@ -21,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSNumber *voteCount;
 @property NSNumber *movieID;
 
+@property NSString *adult;
+@property NSString *video;
 @property NSString *backdropPath;
 @property NSString *originalLanguage;
 @property NSString *title;
@@ -29,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *releaseDate;
 @property NSString *originalTitle;
 
-- (NSObject *)initWithDictionary:(NSDictionary *)dict;
+- (id)withDictionary:(NSDictionary *)dict;
 
 @end
 

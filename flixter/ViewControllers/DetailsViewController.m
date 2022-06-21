@@ -7,6 +7,7 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "Utils.h"
 
 @interface DetailsViewController ()
 
@@ -17,42 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Set text-only labels.
-    self.movieTitle.text = self.movieInfo[@"title"];
-    self.movieDetails.text = self.movieInfo[@"overview"];
+    self.movieTitle.text = self.movie.title;
+    self.movieDetails.text = self.movie.overview;
+    self.maturityRating.text = self.movie.adult;
     
-    // Have to convert some of the values to strings, and add a little spice.
-    NSString *voteRatingNum = [NSString stringWithFormat:@"%@",
-                                    self.movieInfo[@"vote_average"]];
-    self.voteRating.text = [@"Vote average: "
-                                    stringByAppendingString:voteRatingNum];
-    NSString *popularityNum = [NSString stringWithFormat:@"%@",
-                                    self.movieInfo[@"popularity"]];
-    self.popularityRating.text = [@"Popularity: "
-                                    stringByAppendingString:popularityNum];
-    self.maturityRating.text = [self.movieInfo[@"adult"] boolValue] ?
-                                    @"Adult" : @"For all audiences";
+    NSString *voteRatingNum = [NSString stringWithFormat:@"%@", self.movie.voteAverage];
+    self.voteRating.text = [@"Vote average: " stringByAppendingString:voteRatingNum];
     
-    // Base locaiton.
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *popularityNum = [NSString stringWithFormat:@"%@", self.movie.popularity];
+    self.popularityRating.text = [@"Popularity: " stringByAppendingString:popularityNum];
     
-    // Get full URLs for image locations.
-    NSString *posterURLString = self.movieInfo[@"poster_path"];
-    NSString *backdropURLString = self.movieInfo[@"backdrop_path"];
-    
-    // Combine each URL to get full location path.
-    NSString *fullPosterURLString = [baseURLString
-                                stringByAppendingString:posterURLString];
-    NSString *fullBackdropURLString = [baseURLString
-                                stringByAppendingString:backdropURLString];
-    
-    // Convert strings back to NSURLs.
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
-    
-    // Set the poster and backdrop images using the links provided.
-    [self.posterImage setImageWithURL:posterURL];
-    [self.backdropImage setImageWithURL:backdropURL];
+    [Utils setPosterViewImage:self.posterImage path:self.movie.posterPath];
+    [Utils setPosterViewImage:self.backdropImage path:self.movie.backdropPath];
 }
 
 /*

@@ -6,6 +6,7 @@
 //
 
 #import "APIManager.h"
+#import "Movie.h"
 
 @implementation APIManager
 
@@ -19,7 +20,11 @@
             NSLog(@"%@", [error localizedDescription]);
         } else {
             movies = [[NSMutableArray alloc] init];
-            movies = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil][@"results"];
+            NSArray *movieDictionaries = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil][@"results"];
+            for (NSDictionary *item in movieDictionaries) {
+                Movie *current = [[Movie alloc] init];
+                [movies addObject:[current withDictionary:item]];
+            }
         }
         completion(movies, error);
     }];
