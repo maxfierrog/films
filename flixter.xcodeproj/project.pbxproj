@@ -56,8 +56,8 @@
 		9830A71628622DB9007BFC17 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		9830A71828622DCA007BFC17 /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		9830A71928622DCA007BFC17 /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
-		9830A71B2862508E007BFC17 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = ViewControllers/Utils.h; sourceTree = "<group>"; };
-		9830A71C2862508E007BFC17 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = ViewControllers/Utils.m; sourceTree = "<group>"; };
+		9830A71B2862508E007BFC17 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		9830A71C2862508E007BFC17 /* Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		98797E92285A781C006251B9 /* flixter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flixter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98797E95285A781C006251B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		98797E96285A781C006251B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -151,6 +151,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		9830A71E28627DFE007BFC17 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9830A71B2862508E007BFC17 /* Utils.h */,
+				9830A71C2862508E007BFC17 /* Utils.m */,
+				9830A71828622DCA007BFC17 /* APIManager.h */,
+				9830A71928622DCA007BFC17 /* APIManager.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		98797E89285A781C006251B9 = {
 			isa = PBXGroup;
 			children = (
@@ -176,8 +187,7 @@
 		98797E94285A781C006251B9 /* flixter */ = {
 			isa = PBXGroup;
 			children = (
-				9830A71B2862508E007BFC17 /* Utils.h */,
-				9830A71C2862508E007BFC17 /* Utils.m */,
+				9830A71E28627DFE007BFC17 /* Utilities */,
 				9816CD22285FF6C9001FD72D /* Cells */,
 				98E7EAC5285A7A7D00733094 /* ViewControllers */,
 				98797E95285A781C006251B9 /* AppDelegate.h */,
@@ -187,8 +197,6 @@
 				98797E9E285A781C006251B9 /* Main.storyboard */,
 				9830A71528622DB9007BFC17 /* Movie.h */,
 				9830A71628622DB9007BFC17 /* Movie.m */,
-				9830A71828622DCA007BFC17 /* APIManager.h */,
-				9830A71928622DCA007BFC17 /* APIManager.m */,
 				98797EA1285A781C006251B9 /* Assets.xcassets */,
 				98797EA3285A781C006251B9 /* LaunchScreen.storyboard */,
 				98797EA6285A781C006251B9 /* Info.plist */,
