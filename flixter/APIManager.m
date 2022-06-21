@@ -9,4 +9,21 @@
 
 @implementation APIManager
 
++ (void)fetchNowPlayingMovies:(void (^)(NSArray *movies, NSError *error))completion {
+    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=0e3e4cf020820c13098e4a8ddad6a61b"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSMutableArray *movies;
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        } else {
+            movies = [[NSMutableArray alloc] init];
+            movies = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil][@"results"];
+        }
+        completion(movies, error);
+    }];
+    [task resume];
+}
+
 @end

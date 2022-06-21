@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface APIManager : NSObject
-
++ (void)fetchNowPlayingMovies:(void (^)(NSArray *movies, NSError *error))completion;
 @end
 
 NS_ASSUME_NONNULL_END
