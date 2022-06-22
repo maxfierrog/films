@@ -1,12 +1,10 @@
-# Project 1 - Flixter
+# Flixter
 
-Flixter is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
-
-Time spent: 20 hours spent in total
+Flixter is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#). I spent about 20 hours working on this.
 
 ## User Stories
 
-The following **required** functionality is complete:
+These are some of the features included:
 
 - [X] User sees an app icon on the home screen and a styled launch screen.
 - [X] User can view a list of movies currently playing in theaters from The Movie Database.
@@ -16,7 +14,7 @@ The following **required** functionality is complete:
 - [X] User sees an error message when there's a networking error.
 - [X] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
 
-The following **optional** features are implemented:
+Here are some additional features I might implement in the future:
 
 - [X] Networking error alert is also presented when refreshing movie data.
 - [ ] User can tap a poster in the collection view to see a detail screen of that movie.
@@ -29,14 +27,14 @@ The following **optional** features are implemented:
 - [ ] Customize the UI.
 - [ ] Run your app on a real device.
 
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+Some things I would like to get better at are:
 
 1. Modularization: How to write less boilerplate by potentially writing a Utils class.
 2. UI Workflow Overview: How the main moving parts of an iOS project work together (views, controllers, outlets, classes, frameworks, etc.)
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a video showing some of the app's UI and functionality:
 
 https://user-images.githubusercontent.com/69845191/174865214-ca5f00cf-f0a7-4b45-a8ac-9ba1b3cde344.mp4
 
@@ -46,7 +44,7 @@ The main challenge when making this was becoming familiarized with app developme
 
 ## Credits
 
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
+Libraries:
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 
