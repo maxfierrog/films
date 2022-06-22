@@ -20,14 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     UIAlertController *alert = [Utils getNetworkingAlertController:^{
         [self viewDidLoad];
     }];
-    
     self.movieGridView.dataSource = self;
     self.movieGridView.delegate = self;
-    
     [APIManager fetchNowPlayingMovies:^(NSArray * _Nonnull movies, NSError * _Nonnull error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
@@ -37,7 +34,6 @@
             [self.movieGridView reloadData];
         }
     }];
-    
     [Utils getRefreshControl:self refreshSelector:@selector(doRefresh:) UIView:self.movieGridView];
 }
 

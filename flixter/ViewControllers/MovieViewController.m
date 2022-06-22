@@ -23,18 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     UIAlertController *alert = [Utils getNetworkingAlertController:^{
         [self viewDidLoad];
     }];
-    
     [Utils getRefreshControl:self refreshSelector:@selector(doRefresh:) UIView:self.tableView];
-    
     [self.activityIndicator hidesWhenStopped];
     [self.activityIndicator startAnimating];
-    
     [APIManager fetchNowPlayingMovies:^(NSArray *movies, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);

@@ -17,17 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.movieTitle.text = self.movie.title;
     self.movieDetails.text = self.movie.overview;
     self.maturityRating.text = self.movie.adult;
-    
     NSString *voteRatingNum = [NSString stringWithFormat:@"%@", self.movie.voteAverage];
     self.voteRating.text = [@"Vote average: " stringByAppendingString:voteRatingNum];
-    
     NSString *popularityNum = [NSString stringWithFormat:@"%@", self.movie.popularity];
     self.popularityRating.text = [@"Popularity: " stringByAppendingString:popularityNum];
-    
     [Utils setUIImageViewImage:self.posterImage path:self.movie.posterPath];
     [Utils setUIImageViewImage:self.backdropImage path:self.movie.backdropPath];
 }
